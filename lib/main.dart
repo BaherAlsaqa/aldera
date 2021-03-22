@@ -1,12 +1,9 @@
-import 'dart:io';
-
 import 'package:aldera/provider/GeneralProvider.dart';
 import 'package:aldera/provider/LanguageProvider.dart';
 import 'package:aldera/provider/TimerProvider.dart';
 import 'package:aldera/screens/splash/SplashScreen.dart';
 import 'package:aldera/singleton/dio.dart';
 import 'package:aldera/utils/AppLocalization.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
@@ -19,7 +16,6 @@ import 'package:aldera/singleton/dio.dart' as dio;
 
 import 'constants/colors.dart';
 import 'constants/constants.dart';
-import 'package:flutter/foundation.dart' show kDebugMode;
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
@@ -97,8 +93,8 @@ void main() async {
                       DefaultCupertinoLocalizations.delegate
                     ],
                     supportedLocales: [
-                      Locale('en'),
                       Locale('ar'),
+                      Locale('en'),
                     ],
                     localeResolutionCallback: (locale, supportedLocales) {
                       for (var supportedLocale in supportedLocales) {

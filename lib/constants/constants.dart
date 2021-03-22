@@ -3,6 +3,7 @@
 const String PRIMARY_FONT_LIGHT = "Montserrat-Light";
 const String PRIMARY_FONT_REGULAR = "Montserrat-Regular";
 const String PRIMARY_FONT_MEDIUM = "Montserrat-Medium";
+const String PRIMARY_FONT_KHEBRAT_MUSAMEM = "Khebrat-Musamim-Regular";
 
 ///IntroAnimationDots
 final kAnimationDuration = Duration(microseconds: 200);

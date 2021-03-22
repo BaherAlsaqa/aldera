@@ -1,15 +1,19 @@
 import 'dart:async';
+import 'dart:ui';
 import 'package:aldera/constants/colors.dart';
 import 'package:aldera/constants/constants.dart';
+import 'package:aldera/custom_widgets/CurvePainter.dart';
+import 'package:aldera/custom_widgets/CustomText.dart';
 import 'package:aldera/provider/GeneralProvider.dart';
+import 'package:aldera/screens/auth/LoginScreen.dart';
 import 'package:aldera/screens/home/HomeScreen.dart';
 import 'package:aldera/singleton/dio.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -17,18 +21,13 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  DateTime today = DateTime.now();
-  final  firebaseMessaging = FirebaseMessaging();
-  bool fromNotification = false;
-  dynamic type;
-  dynamic orderId;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     iniFCM();
-    // startTime();
+    startTime();
   }
 
   @override
@@ -43,21 +42,32 @@ class _SplashScreenState extends State<SplashScreen> {
           backgroundColor: primaryColor,
           body: Stack(
             children: [
+              PositionedDirectional(
+                  bottom: 0.h,
+                  child: Image.asset(ASSETS_NAME_IMAGES+'splash_image.png',
+                    fit: BoxFit.fill,)),
               Container(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(
-                      ASSETS_NAME_IMAGES+'splash.png'
-                    ),
-                    fit: BoxFit.fill
-                  )
+                color: Colors.transparent,
+                child: CustomPaint(
+                  painter: CurvePainter(),
                 ),
               ),
-              Center(
-                  child:
-                      SvgPicture.asset(ASSETS_NAME_ICONS + "logo.svg"))
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  SvgPicture.asset(ASSETS_NAME_ICONS + "logo.svg", width: 46.w,),
+                  CustomText(
+                    'app_name',
+                    textColor: textWhite,
+                    primaryFont: PRIMARY_FONT_KHEBRAT_MUSAMEM,
+                    fontSize: 33,
+                    textAlign: TextAlign.center,
+                  )
+                ],
+              )
             ],
           )),
     );
@@ -93,7 +103,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           HomeScreen():
                         HomeScreen():
                       ActivationCodeScreen(true, true):*/
-                     HomeScreen(),
+                     LoginScreen(),
               create: (_) => GeneralProvider()),
         ),
       );

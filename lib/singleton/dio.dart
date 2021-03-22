@@ -3,7 +3,6 @@ import 'dart:io';
 import 'dart:ui';
 
 import 'package:dio/dio.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -24,7 +23,6 @@ import 'APIsData.dart';
 import 'AppSharedPreference.dart';
 
 final getIt = GetIt.instance;
-final firebaseMessaging = FirebaseMessaging();
 
 Future<void> init() async {
   getIt.registerLazySingleton<AppSharedPreferences>(
@@ -56,22 +54,24 @@ Future<void> init() async {
 }
 
 systemChrome({bool darkMode, Color navBarColor = white,
-  Brightness navBrightness = Brightness.light}){
+  Brightness navBrightness = Brightness.light, Color statusColor = Colors.transparent}){
   if(darkMode)
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
-        statusBarColor: Colors.transparent,
+        statusBarColor: statusColor,
         statusBarIconBrightness: Brightness.light,
         statusBarBrightness: Brightness.dark,
         systemNavigationBarIconBrightness: navBrightness,
         systemNavigationBarDividerColor: navBrightness == Brightness.dark?
-        white: black,
+        white: white,
         systemNavigationBarColor: navBarColor));
   else
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
-        statusBarColor: white,
+        statusBarColor: statusColor,
         statusBarIconBrightness: Brightness.dark,
         statusBarBrightness: Brightness.light,
         systemNavigationBarIconBrightness: Brightness.dark,
+        systemNavigationBarDividerColor: navBrightness == Brightness.dark?
+        white: white,
         systemNavigationBarColor: navBarColor));
 }
 
@@ -99,7 +99,6 @@ refreshToken({bool fromLogin = false}) async {
   //
   //   // print(getIt<Dio>().options.headers);
   // }else {
-    firebaseMessaging.subscribeToTopic("visitors");
     getIt<Dio>().options.headers = {
       'Accept-Language': getIt<LanguagesProvider>().appLocal.languageCode
           .toLowerCase(),
