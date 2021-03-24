@@ -75,7 +75,7 @@ class _CustomCarouselSliderState extends State<CustomCarouselSlider> {
           decoration: BoxDecoration(
             color: _current == index ? secondaryColor : white.withOpacity(0.6),
             borderRadius: BorderRadius.all(Radius.circular(3.sp)),
-            border: Border.all(color: borderGreen, width: 0.5.w)
+            border: Border.all(color: borderPrimaryColor, width: 0.5.w)
           ),
         );
       }),

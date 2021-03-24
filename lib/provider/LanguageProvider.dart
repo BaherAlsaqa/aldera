@@ -9,14 +9,14 @@ class LanguagesProvider extends ChangeNotifier {
 
   LanguagesProvider({@required this.sharedPreferences});
 
-  Locale _appLocale = Locale('ar');
+  Locale _appLocale = Locale('en');
 
-  Locale get appLocal => _appLocale ?? Locale("ar");
+  Locale get appLocal => _appLocale ?? Locale("en");
 
   fetchLocale() async {
     sharedPreferences.reload();
     if (sharedPreferences.getString('language_code') == null) {
-      _appLocale = Locale('ar');
+      _appLocale = Locale('en');
       print("APPLocal null");
 
       return Null;

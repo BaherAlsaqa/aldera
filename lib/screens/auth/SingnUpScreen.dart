@@ -12,14 +12,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'SingnUpScreen.dart';
-
-class LoginScreen extends StatefulWidget {
+class SingnUpScreen extends StatefulWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _SingnUpScreenState createState() => _SingnUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SingnUpScreenState extends State<SingnUpScreen> {
   TextEditingController userMobile = TextEditingController();
   TextEditingController password = TextEditingController();
   FocusNode focus1 = FocusNode();
@@ -92,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.only(
-                    start: 34.w, end: 34.w, top: 242.h.h, bottom: 0.h
+                      start: 34.w, end: 34.w, top: 242.h.h, bottom: 0.h
                   ),
                   child: Form(
                     key: formKey,
@@ -100,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         CustomText(
-                          'login',
+                          'sign_Up',
                           textColor: titleBlack,
                           primaryFont: PRIMARY_FONT_REGULAR,
                           fontSize: 24,

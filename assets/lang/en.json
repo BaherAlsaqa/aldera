@@ -1,6 +1,6 @@
 {
   "app_name": "Aldera",
-  "login": "Sign in",
+  "login": "LOGIN",
   "pleaseEnterCurrentPassword": "Please enter current password",
   "pleaseEnterNewPassword": "Please enter new password",
   "pleaseEnterDuplicateNewPassword": "Please enter duplicate new password",
@@ -22,7 +22,8 @@
   "registration": "Registration",
   "termsConditions": "Terms and conditions",
   "alreadyHaveAccount": "Already have an account",
-  "signUp": "Sign up",
+  "signUp": "SignUP",
+  "sign_Up": "SIGN UP",
   "name": "Name",
   "email": "Email",
   "ِactivationCode": "ِActivation code",
@@ -32,5 +33,9 @@
   "min": "Two min",
   "next": "Next",
   "newPassword": "New password",
-  "confirmNewPassword": "Confirm new password"
+  "confirmNewPassword": "Confirm new password",
+  "pleaseSignContinue": "Please sign to continue",
+  "loginButton": "LOGIN",
+  "loginVisitor": "Log in visitor",
+  "dontHaveAccount": "Dont have account ?"
 }

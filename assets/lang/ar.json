@@ -23,6 +23,7 @@
   "termsConditions": "الشروط والأحكام",
   "alreadyHaveAccount": "هل لديك حساب",
   "signUp": "تسجيل",
+  "sign_Up": "التسجيل",
   "name": "الإسم",
   "email": "البريد الإلكتروني",
   "ِactivationCode": "رمز التفعيل",
@@ -32,5 +33,9 @@
   "min": "دقيقتين",
   "next": "التالي",
   "newPassword": "كلمة المرور الجديدة",
-  "confirmNewPassword": "تأكيد كلمة المرور الجديدة"
+  "confirmNewPassword": "تأكيد كلمة المرور الجديدة",
+  "pleaseSignContinue": "يرجى تسجيل الدخول للمتابعة",
+  "loginButton": "دخول",
+  "loginVisitor": "دخول زائر",
+  "dontHaveAccount": "ليس لديك حساب ؟"
 }

@@ -88,6 +88,7 @@ class _SplashScreenState extends State<SplashScreen> {
     //     else
     //       systemChrome(darkMode: true);
     //   }
+    systemChrome(darkMode: false);
 
       Navigator.pushReplacement(
         context,
