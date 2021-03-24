@@ -11,6 +11,7 @@ final kAnimationDuration = Duration(microseconds: 200);
 ///Assets Directories
 const String ASSETS_NAME_ICONS = "assets/icons/";
 const String ASSETS_NAME_IMAGES = "assets/images/";
+const String ASSETS_NAME_AUTH = ASSETS_NAME_ICONS+"auth/";
 const String ASSETS_NAME_APPBAR = ASSETS_NAME_ICONS+"appbar/";
 const String ASSETS_NAME_HOME = ASSETS_NAME_ICONS+"home/";
 const String ASSETS_NAME_BOTTOM_NAV = ASSETS_NAME_ICONS+"bottom_nav/";

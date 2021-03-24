@@ -12,23 +12,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'ActivateScreen.dart';
-import 'LoginScreen.dart';
+import 'SingnUpScreen.dart';
 
-class SingnUpScreen extends StatefulWidget {
+class ActivateScreen extends StatefulWidget {
   @override
-  _SingnUpScreenState createState() => _SingnUpScreenState();
+  _ActivateScreenState createState() => _ActivateScreenState();
 }
 
-class _SingnUpScreenState extends State<SingnUpScreen> {
-  TextEditingController userMobile = TextEditingController();
-  TextEditingController password = TextEditingController();
-  TextEditingController rePassword = TextEditingController();
+class _ActivateScreenState extends State<ActivateScreen> {
+  TextEditingController code = TextEditingController();
   FocusNode focus1 = FocusNode();
-  FocusNode focus2 = FocusNode();
-  FocusNode focus3 = FocusNode();
   final formKey = GlobalKey<FormState>();
-  bool checked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +36,6 @@ class _SingnUpScreenState extends State<SingnUpScreen> {
             white,
             appBarHeight: 0.0,
           ),
-          bottomNavigationBar: bottom(),
           body: SingleChildScrollView(
             child: Stack(
               alignment: AlignmentDirectional.topEnd,
@@ -96,7 +89,7 @@ class _SingnUpScreenState extends State<SingnUpScreen> {
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.only(
-                      start: 34.w, end: 34.w, top: 242.h.h, bottom: 0.h
+                    start: 34.w, end: 34.w, top: 242.h.h, bottom: 0.h
                   ),
                   child: Form(
                     key: formKey,
@@ -104,83 +97,35 @@ class _SingnUpScreenState extends State<SingnUpScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         CustomText(
-                          'sign_Up',
+                          'activate',
                           textColor: titleBlack,
                           primaryFont: PRIMARY_FONT_REGULAR,
                           fontSize: 24,
                         ),
                         SizedBox(height: 6.h,),
                         CustomText(
-                          'obtainNewAccountEnterRequiredInformation',
+                          'enterVerificationCodeSentTextMessage',
                           textColor: textBlack,
                           primaryFont: PRIMARY_FONT_LIGHT,
                           fontSize: 17,
-                          lines: 2,
+                          lines: 3,
                         ),
-                        SizedBox(height: 17.h,),
+                        SizedBox(height: 37.h,),
                         CustomTextField(
-                          "mobileNumber",
-                          userMobile,
+                          "code",
+                          code,
                           focus1,
-                          focus2,
+                          focus1,
                           MOBILE,
-                          "pleaseEnterMobile",
-                          onDone: (value) {
-                            userMobile.text = value.substring(1);
-                            userMobile.selection =
-                                TextSelection.fromPosition(TextPosition(offset: 1));
-                          },
-                        ),
-                        SizedBox(height: 16.h,),
-                        CustomTextField(
-                            "password",
-                            password,
-                            focus2,
-                            focus3,
-                            PASSWORD,
-                            "pleaseEnterPassword"),
-                        SizedBox(height: 16.h,),
-                        CustomTextField(
-                            "rePassword",
-                            rePassword,
-                            focus3,
-                            focus3,
-                            PASSWORD,
-                            "pleaseEnterRePassword"),
-                        SizedBox(height: 17.h,),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            CustomText(
-                              'privacyTerms',
-                              textColor: textBlack,
-                              primaryFont: PRIMARY_FONT_REGULAR,
-                              fontSize: 17,
-                            ),
-                            InkWell(
-                                onTap: (){
-                                  setState(() {
-                                    checked = !checked;
-                                  });
-                                },
-                                child: SvgPicture.asset(ASSETS_NAME_AUTH+
-                                    (checked? 'checked.svg': 'un_checked.svg'),
-                                  width: 22.w,))
-                          ],
+                          "pleaseEnterCode",
                         ),
                         SizedBox(height: 17.h,),
                         CustomButton(
-                          title: 'sign_Up',
+                          title: 'confirmButton',
                           function: (){
                             //todo enter code here
                             if(formKey.currentState.validate()){
-                              print('sign_Up');
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => ActivateScreen(),
-                                ),
-                              );
+                              print('loginButton');
                             }
                           },
                         ),
@@ -192,43 +137,6 @@ class _SingnUpScreenState extends State<SingnUpScreen> {
             ),
           ),
         ),
-      ),
-    );
-  }
-
-  Widget bottom() {
-    return Padding(
-      padding: EdgeInsetsDirectional.only(
-          start: 34.w, end: 34.w, top: 0.h, bottom: 15.h
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          CustomText(
-            'alreadyHaveAccount',
-            textColor: titleBlack,
-            primaryFont: PRIMARY_FONT_LIGHT,
-            fontSize: 17,
-          ),
-          SizedBox(width: 5.w,),
-          CustomButton(
-            width: 80,
-            title: 'signIn',
-            fontFamily: PRIMARY_FONT_LIGHT,
-            withOutBackground: true,
-            textColorValue: visitorTextColor,
-            fontSize: 17,
-            function: (){
-              //todo enter code here
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => LoginScreen(),
-                ),
-              );
-            },
-          ),
-        ],
       ),
     );
   }

@@ -9,11 +9,13 @@
   "search": "Search",
   "pleaseEnterMobile": "Please enter mobile number",
   "pleaseEnterPassword": "Please enter password",
+  "pleaseEnterRePassword": "Please enter re-password",
   "pleaseEnterFullName": "Please enter full name",
   "pleaseEnterEmail": "Please enter email",
   "pleaseEnterCode": "Please enter code",
   "mobileNumber": "Mobile number",
   "password": "Password",
+  "rePassword": "Re-Password",
   "forgetPassword": "Forget password!",
   "passwordRecovery": "Password Recovery",
   "notRegisteredYetSignup": "Not registered yet! Sign up",
@@ -37,5 +39,10 @@
   "pleaseSignContinue": "Please sign to continue",
   "loginButton": "LOGIN",
   "loginVisitor": "Log in visitor",
-  "dontHaveAccount": "Dont have account ?"
+  "dontHaveAccount": "Dont have account ?",
+  "obtainNewAccountEnterRequiredInformation": "To obtain a new account, enter the required information",
+  "privacyTerms": "Privacy & terms",
+  "activate": "ACTIVATE",
+  "enterNumberMessage": "Enter the number message",
+  "enterVerificationCodeSentTextMessage": "Enter the verification code that was sent in the text message"
 }

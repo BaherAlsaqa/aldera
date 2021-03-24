@@ -9,11 +9,13 @@
   "search": "البحث",
   "pleaseEnterMobile": "من فضلك أدخل رقم الجوال",
   "pleaseEnterPassword": "من فضلك أدخل كلمة المرور",
+  "pleaseEnterRePassword": "من فضلك أعد كتابة كلمة المرور",
   "pleaseEnterFullName": "من فضلك أدخل الاسم",
   "pleaseEnterEmail": "من فضلك أدخل البريد الالكتروني",
   "pleaseEnterCode": "من فضلك أدخل الكود",
   "mobileNumber": "رقم الجوال",
   "password": "كلمة المرور",
+  "rePassword": "إعادة كلمة المرور",
   "forgetPassword": "نسيت كلمة المرور!",
   "passwordRecovery": "إستعادة كلمة المرور",
   "notRegisteredYetSignup": "غير مسجل بعد! سجل",
@@ -37,5 +39,9 @@
   "pleaseSignContinue": "يرجى تسجيل الدخول للمتابعة",
   "loginButton": "دخول",
   "loginVisitor": "دخول زائر",
-  "dontHaveAccount": "ليس لديك حساب ؟"
+  "dontHaveAccount": "ليس لديك حساب ؟",
+  "obtainNewAccountEnterRequiredInformation": "للحصول على حساب جديد ، أدخل معلومات مطلوبة",
+  "privacyTerms": "الخصوصية والشروط",
+  "activate": "التفعيل",
+  "enterVerificationCodeSentTextMessage": "أدخل كود التحقق الذي تم إرسالة في الرسالة النصية"
 }

@@ -64,6 +64,7 @@ flutter:
     - assets/images/
     - assets/fonts/
     - assets/icons/
+    - assets/icons/auth/
     - assets/icons/appbar/
     - assets/icons/bottom_nav/
     - assets/icons/home/
