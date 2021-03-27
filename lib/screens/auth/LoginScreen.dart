@@ -6,6 +6,7 @@ import 'package:aldera/custom_widgets/CustomButton.dart';
 import 'package:aldera/custom_widgets/CustomText.dart';
 import 'package:aldera/custom_widgets/CustomTextField.dart';
 import 'package:aldera/provider/LanguageProvider.dart';
+import 'package:aldera/screens/home/HomeScreen.dart';
 import 'package:aldera/singleton/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -140,7 +141,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           function: (){
                             //todo enter code here
                             if(formKey.currentState.validate()){
-                              print('loginButton');
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => HomeScreen(1),
+                                ),
+                              );
                             }
                           },
                         ),

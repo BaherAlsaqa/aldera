@@ -44,5 +44,7 @@
   "privacyTerms": "Privacy & terms",
   "activate": "ACTIVATE",
   "enterNumberMessage": "Enter the number message",
-  "enterVerificationCodeSentTextMessage": "Enter the verification code that was sent in the text message"
+  "enterVerificationCodeSentTextMessage": "Enter the verification code that was sent in the text message",
+  "skip": "Skip",
+  "home": "Home"
 }

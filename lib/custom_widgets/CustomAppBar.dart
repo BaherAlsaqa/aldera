@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:ui';
 
+import 'package:aldera/singleton/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -36,7 +37,7 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
       {this.back = false,
       this.title,
       this.showTitle = true,
-      this.titleColor = primaryColor,
+      this.titleColor = textWhite,
       this.customTitle = false,
       this.home = false,
       this.onBack,
@@ -70,8 +71,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
     return Consumer<GeneralProvider>(
       builder: (context, generalProvider, child) {
         return AppBar(
-            title: !widget.home
-                ? Padding(
+            title: Padding(
                     padding: EdgeInsetsDirectional.only(
                         start: 0.w, end: 0.w, top: 5.h, bottom: 0.h),
                     child: CustomText(
@@ -81,85 +81,12 @@ class _CustomAppBarState extends State<CustomAppBar> {
                       primaryFont: PRIMARY_FONT_MEDIUM,
                       textColor: widget.titleColor,
                     ),
-                  )
-                : SvgPicture.asset(
-                    ASSETS_NAME_HOME + "logo.svg",
-                    width: 50.w,
                   ),
-            leading: widget.home
-                ? IconButton(
-                    icon: SvgPicture.asset(
-                      ASSETS_NAME_APPBAR + "menu.svg",
-                      width: 23.w,
-                    ),
-                    onPressed: () {
-                      Scaffold.of(context).openDrawer();
-                    })
-                : widget.back
-                    ? Container(
-                        child: Directionality(
-                          textDirection: TextDirection.rtl,
-                          child: IconButton(
-                              onPressed: () {
-                                if(!widget.exit) {
-                                  if (widget.fromNotification) {
-                                    // Navigator.pushAndRemoveUntil(
-                                    //     context,
-                                    //     MaterialPageRoute(
-                                    //         builder: (context) =>
-                                    //             ChangeNotifierProvider(
-                                    //               child: HomeScreen(),
-                                    //               create: (context) =>
-                                    //                   GeneralProvider(),
-                                    //             )),
-                                    //         (Route<dynamic> route) => false);
-                                  } else {
-                                    if (widget.title != 'cart' || !widget.customBack) {
-                                      Navigator.pop(context);
-                                    }
-                                    widget.onBack();
-                                  }
-                                }else{
-                                  Platform.isAndroid?
-                                    SystemNavigator.pop():
-                                  exit(0);
-                                }
-                              },
-                              icon: Directionality(
-                                textDirection: TextDirection.rtl,
-                                child: SvgPicture.asset(
-                                  ASSETS_NAME_ICONS + "back_arrow.svg",
-                                  width: 10.w,
-                                  matchTextDirection: true,
-                                  color: white,
-                                ),
-                              )),
-                        ),
-                      )
-                    : Container(
-                        width: 0.0.w,
-                        height: 0.0.h,
-                      ),
             automaticallyImplyLeading: false,
-            centerTitle: true,
+            centerTitle: false,
+            brightness: widget.home? Brightness.dark: null,
             actions: [
-              if (widget.search)
-                IconButton(
-                    onPressed: () {
-                      //todo //enter code here
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => SearchScreen(),
-                      //   ),
-                      // );
-                    },
-                    icon: SvgPicture.asset(
-                        ASSETS_NAME_ICONS + "search_appbar.svg"))
-              else if (widget.home)
-                Consumer<GeneralProvider>(
-                  builder: (context, generalProvider, child) {
-                    return Container(
+                Container(
                       padding: EdgeInsetsDirectional.only(
                         start: 0.w, end: 0.w, top: 5.h, bottom: 0.h
                       ),
@@ -176,13 +103,26 @@ class _CustomAppBarState extends State<CustomAppBar> {
                             // );
                           },
                           icon: SvgPicture.asset(
-                            ASSETS_NAME_APPBAR + "cart.svg",
-                            width: 24.w,
+                            ASSETS_NAME_APPBAR + "notifications.svg",
+                            width: 16.w,
                           )),
-                    );
-                  }
-                )
+                    )
             ],
+            flexibleSpace: Container(
+              width: 1.0.sw,
+              height: widget.appBarHeight+widget.appBarHeight,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: AlignmentDirectional.center,
+                  end: AlignmentDirectional(0.5, 0.7), // 10% of the width, so there are ten blinds.
+                  colors: <Color>[
+                    secondaryColor,
+                    // primaryColor,
+                    primaryColor,
+                  ], // red to yellow
+                ),
+              ),
+            ),
             backgroundColor: widget.backColor,
             elevation: 0,
             bottom: widget.viewBottom

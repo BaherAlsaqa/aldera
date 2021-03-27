@@ -43,5 +43,7 @@
   "obtainNewAccountEnterRequiredInformation": "للحصول على حساب جديد ، أدخل معلومات مطلوبة",
   "privacyTerms": "الخصوصية والشروط",
   "activate": "التفعيل",
-  "enterVerificationCodeSentTextMessage": "أدخل كود التحقق الذي تم إرسالة في الرسالة النصية"
+  "enterVerificationCodeSentTextMessage": "أدخل كود التحقق الذي تم إرسالة في الرسالة النصية",
+  "skip": "تخطي",
+  "home": "الرئيسية"
 }

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16">
+  <g id="notifications-bell-button" transform="translate(14) rotate(180)">
+    <path id="Shape" d="M5.353-14.4H8.647A1.629,1.629,0,0,0,7-16,1.629,1.629,0,0,0,5.353-14.4ZM0-13.6v.8l1.647,1.6v4.4A5.182,5.182,0,0,0,5.765-1.76V-1.2A1.249,1.249,0,0,0,7,0,1.248,1.248,0,0,0,8.235-1.2V-1.76A5.181,5.181,0,0,0,12.352-6.8v-4.4L14-12.8v-.8Z" transform="translate(0 0)" fill="#fff"/>
+  </g>
+</svg>

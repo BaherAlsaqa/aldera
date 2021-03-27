@@ -7,6 +7,7 @@ import 'package:aldera/custom_widgets/CustomText.dart';
 import 'package:aldera/provider/GeneralProvider.dart';
 import 'package:aldera/screens/auth/LoginScreen.dart';
 import 'package:aldera/screens/home/HomeScreen.dart';
+import 'package:aldera/screens/splash/IntroScreens.dart';
 import 'package:aldera/singleton/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -88,7 +89,12 @@ class _SplashScreenState extends State<SplashScreen> {
     //     else
     //       systemChrome(darkMode: true);
     //   }
-    systemChrome(darkMode: false);
+
+    // systemChrome(darkMode: false);
+    systemChrome(
+        darkMode: true,
+        navBarColor: white,
+        navBrightness: Brightness.dark);
 
       Navigator.pushReplacement(
         context,
@@ -104,7 +110,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           HomeScreen():
                         HomeScreen():
                       ActivationCodeScreen(true, true):*/
-                     LoginScreen(),
+                     HomeScreen(1),
               create: (_) => GeneralProvider()),
         ),
       );
