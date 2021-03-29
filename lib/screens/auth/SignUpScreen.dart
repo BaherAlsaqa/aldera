@@ -15,12 +15,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'ActivateScreen.dart';
 import 'LoginScreen.dart';
 
-class SingnUpScreen extends StatefulWidget {
+class SignUpScreen extends StatefulWidget {
   @override
-  _SingnUpScreenState createState() => _SingnUpScreenState();
+  _SignUpScreenState createState() => _SignUpScreenState();
 }
 
-class _SingnUpScreenState extends State<SingnUpScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController userMobile = TextEditingController();
   TextEditingController password = TextEditingController();
   TextEditingController rePassword = TextEditingController();

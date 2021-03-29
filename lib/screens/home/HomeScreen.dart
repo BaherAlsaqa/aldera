@@ -1,11 +1,13 @@
 import 'package:aldera/constants/colors.dart';
 import 'package:aldera/constants/constants.dart';
 import 'package:aldera/custom_widgets/CustomAppBar.dart';
+import 'package:aldera/screens/ads/AddAdsScreen.dart';
 import 'package:aldera/screens/home/tabs/AboutPage.dart';
 import 'package:aldera/screens/home/tabs/AccountPage.dart';
 import 'package:aldera/screens/home/tabs/HomePage.dart';
 import 'package:aldera/screens/home/tabs/SectionsPage.dart';
 import 'package:aldera/singleton/dio.dart';
+import 'package:aldera/utils/language.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -55,11 +57,18 @@ class _HomeScreenState extends State<HomeScreen> {
     iconsTaps = [
       // SvgPicture.asset(iconsName[0]),
       for (int i = 0; i < 5; i++) i==0? Container(
-        width: 21.w,
-        height: 21.w,
-        child: CircleAvatar(
-            backgroundImage: NetworkImage(iconsName[i], scale: 21.w),
-            radius: 25.sp),
+        width: 22.w,
+        height: 22.w,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(25.sp),
+          color: gray3,
+          border: Border.all(
+            color: primaryColor.withOpacity(0.40),
+            width: 1.w
+          ),
+          image: DecorationImage(
+            image: NetworkImage(iconsName[i], scale: 22.w),)
+          )
       ):
       SvgPicture.asset(iconsName[i])
     ];
@@ -97,15 +106,21 @@ class _HomeScreenState extends State<HomeScreen> {
         FloatingActionButtonLocation.endDocked,
         floatingActionButton: Container(
           margin: EdgeInsetsDirectional.only(
-            start: 0.w, end: 10.w, top: 0.h, bottom: 0.h
+            start: 0.w, end: 10.w, top: 62.h, bottom: 0.h
           ),
-          width: 46.w,
-          height: 51.w,
+          width: 40.w,
+          height: 40.w,
           child: FloatingActionButton(
             elevation: 0,
             // backgroundColor: white,
             onPressed: () {
               _incrementTab(1);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AddAdsScreen(),
+                ),
+              );
             },
             // tooltip: 'Increment',
             child: SvgPicture.asset(ASSETS_NAME_HOME+'add_ads.svg', width: 46.w,)
@@ -162,22 +177,22 @@ class _HomeScreenState extends State<HomeScreen> {
         items: [
           BottomNavigationBarItem(
             icon: iconsTaps[0],
-            label: 'account',
+            label: getTranslated(context, 'account'),
             activeIcon: myActiveIcon(activeIconsTaps[0]),
           ),
           BottomNavigationBarItem(
             icon: iconsTaps[1],
-            label: 'home',
+            label: getTranslated(context, 'home'),
             activeIcon: myActiveIcon(activeIconsTaps[1]),
           ),
           BottomNavigationBarItem(
             icon: iconsTaps[2],
-            label: 'sections',
+            label: getTranslated(context, 'sections'),
             activeIcon: myActiveIcon(activeIconsTaps[2]),
           ),
           BottomNavigationBarItem(
             icon: iconsTaps[3],
-            label: 'abouts',
+            label: getTranslated(context, 'about'),
             activeIcon: myActiveIcon(activeIconsTaps[3]),
           ),
           BottomNavigationBarItem(

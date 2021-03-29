@@ -113,7 +113,18 @@ class _MessageCellState extends State<MessageCell> {
                           networkImage
                         )
                       ),
-                      color: gray,
+                      color: gray3,
+                      boxShadow: [
+                        BoxShadow(
+                          color: blackShadowColor.withOpacity(0.24),
+                          blurRadius: 15.0.sp, // soften the shadow
+                          spreadRadius: 0.0.sp, //extend the shadow
+                          offset: Offset(
+                            0.0.sp, // Move to right 10  horizontally
+                            11.0.sp, // Move to bottom 10 Vertically
+                          ),
+                        )
+                      ],
                     ),
                   ),
                   SizedBox(width: 10.w,),

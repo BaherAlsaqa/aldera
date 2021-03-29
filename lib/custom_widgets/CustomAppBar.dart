@@ -85,6 +85,17 @@ class _CustomAppBarState extends State<CustomAppBar> {
             automaticallyImplyLeading: false,
             centerTitle: false,
             brightness: widget.home? Brightness.dark: null,
+            leading: widget.back? Padding(
+              padding: EdgeInsetsDirectional.only(
+                start: 0.w, end: 0.w, top: 5.h, bottom: 0.h
+              ),
+              child: IconButton(
+                icon: SvgPicture.asset(ASSETS_NAME_APPBAR+'back.svg', width: 8.w,),
+                onPressed: (){
+                  Navigator.pop(context, true);
+                },
+              ),
+            ): null,
             actions: [
                 Container(
                       padding: EdgeInsetsDirectional.only(
@@ -113,8 +124,10 @@ class _CustomAppBarState extends State<CustomAppBar> {
               height: widget.appBarHeight+widget.appBarHeight,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  begin: AlignmentDirectional.center,
-                  end: AlignmentDirectional(0.5, 0.7), // 10% of the width, so there are ten blinds.
+                  begin: const FractionalOffset(0.0, 0.0),
+                  end: const FractionalOffset(1.0, 0.0),
+                  stops: [0.0, 1.0],
+                  tileMode: TileMode.clamp,
                   colors: <Color>[
                     secondaryColor,
                     // primaryColor,

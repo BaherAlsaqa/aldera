@@ -42,6 +42,21 @@ class _BannersState extends State<Banners> {
               alignment: AlignmentDirectional.bottomCenter,
               children: [
                 imageContainer(),
+                Container(
+                  width: 1.0.sw,
+                  height: 257.h,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: AlignmentDirectional.topCenter,
+                      end: AlignmentDirectional.bottomCenter,
+                      stops: [0.0, 2.0],
+                      colors: <Color>[
+                        Colors.transparent.withOpacity(0.0),
+                        Colors.black.withOpacity(0.7),
+                      ], // red to yellow
+                    ),
+                  ),
+                ),
                 PositionedDirectional(
                     bottom: 0.h,
                     child: Column(

@@ -46,5 +46,19 @@
   "enterNumberMessage": "Enter the number message",
   "enterVerificationCodeSentTextMessage": "Enter the verification code that was sent in the text message",
   "skip": "Skip",
-  "home": "Home"
+  "home": "Home",
+  "sectionsView": "Sections view",
+  "view": "View",
+  "likes": "Likes",
+  "addComment": "Add a comment...",
+  "send": "Send",
+  "viewAll": "View all",
+  "comments": "Comments",
+  "addAds": "Add ads",
+  "attachment": "Attachment",
+  "imagePreview": "Image preview",
+  "selectSections": "Select Sections",
+  "account": "Account",
+  "sections": "Sections",
+  "about": "About"
 }

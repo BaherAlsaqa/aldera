@@ -74,7 +74,7 @@ class _CustomButtonState extends State<CustomButton> {
                       bottomStart: Radius.circular(widget.radius.w),
                       topStart: Radius.circular(widget.radius.w)
                     ),
-            side: BorderSide(color: widget.withOutBackground? Colors.transparent:
+            side: BorderSide(color: widget.withOutBackground&&widget.borderColor==buttonColor? Colors.transparent:
               widget.borderColor, width: widget.borderWidth.w),),
             child: Container(
               decoration: BoxDecoration(

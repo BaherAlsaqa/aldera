@@ -23,6 +23,7 @@ class CustomTextField extends StatefulWidget {
   bool enableValidation;
   bool serverError;
   num errorColor;
+  double fontSize;
 
   CustomTextField(this.str, this.controller, this.focusNode, this.nextFocusNode,
       this.type, this.emptyError,
@@ -34,7 +35,8 @@ class CustomTextField extends StatefulWidget {
       this.onDone,
       this.onFieldSubmitted,
       this.serverError = false,
-      this.errorColor = 0xffD32F2F});
+      this.errorColor = 0xffD32F2F,
+      this.fontSize = 14});
 
   @override
   _MyTextFieldState createState() => _MyTextFieldState();
@@ -138,7 +140,7 @@ class _MyTextFieldState extends State<CustomTextField> {
             focusColor: white,
             hoverColor: white,
             filled: true,
-            fillColor: gray0,
+            fillColor: widget.type == FULL_NAME? Colors.transparent: gray0,
             counterText: "",
             errorStyle: TextStyle(
                 fontSize: 12.ssp,
@@ -154,8 +156,8 @@ class _MyTextFieldState extends State<CustomTextField> {
                     : 5.h,
                 bottom: 0.h,
                 start: widget.type == CODE || widget.type == PROMO_CODE
-                    ? 28.w
-                    : 39.w,
+                    ? 28.w:
+                    widget.type == FULL_NAME? 5.w : 39.w,
                 end: widget.type == CODE || widget.type == PROMO_CODE
                     ? 10.w
                     : 10.w),
@@ -169,23 +171,23 @@ class _MyTextFieldState extends State<CustomTextField> {
                         widget.type == PROMO_CODE
                     ? PRIMARY_FONT_REGULAR
                     : PRIMARY_FONT_REGULAR,
-                fontSize: 14.ssp),
+                fontSize: widget.fontSize.ssp),
             border: OutlineInputBorder(
-                borderSide: BorderSide(color: borderGray, width: 1.h),
+                borderSide: BorderSide(color: widget.type == FULL_NAME? Colors.transparent: borderGray, width: 1.h),
                 borderRadius: BorderRadius.only(
                     topRight: Radius.circular(12.w),
                     topLeft: Radius.circular(12.w),
                     bottomRight: Radius.circular(12.w),
                     bottomLeft: Radius.circular(12.w))),
             enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: borderGray, width: 1.h),
+                borderSide: BorderSide(color: widget.type == FULL_NAME? Colors.transparent: borderGray, width: 1.h),
                 borderRadius: BorderRadius.only(
                     topRight: Radius.circular(12.w),
                     topLeft: Radius.circular(12.w),
                     bottomRight: Radius.circular(12.w),
                     bottomLeft: Radius.circular(12.w))),
             focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: borderGray, width: 1.h),
+                borderSide: BorderSide(color: widget.type == FULL_NAME? Colors.transparent: borderGray, width: 1.h),
                 borderRadius: BorderRadius.only(
                     topRight: Radius.circular(12.w),
                     topLeft: Radius.circular(12.w),

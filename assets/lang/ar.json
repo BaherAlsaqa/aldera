@@ -45,5 +45,16 @@
   "activate": "التفعيل",
   "enterVerificationCodeSentTextMessage": "أدخل كود التحقق الذي تم إرسالة في الرسالة النصية",
   "skip": "تخطي",
-  "home": "الرئيسية"
+  "home": "الرئيسية",
+  "sectionsView": "عرض الأقسام",
+  "view": "مشاهدة",
+  "likes": "إعجاب",
+  "addComment": "إضافة تعليق...",
+  "send": "إرسال",
+  "viewAll": "عرض الكل",
+  "comments": "تعليقات",
+  "addAds": "إضافة إعلان",
+  "attachment": "المرفق",
+  "imagePreview": "معاينة الصورة",
+  "selectSections": "حدد القسم"
 }
