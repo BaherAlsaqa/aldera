@@ -17,6 +17,8 @@ class CustomButton extends StatefulWidget {
   double borderWidth;
   double fontSize;
   bool withOutBackground;
+  bool differentColor;
+  bool translate;
   String fontFamily;
 
   CustomButton({
@@ -31,6 +33,8 @@ class CustomButton extends StatefulWidget {
     this.borderWidth = 0.0,
     this.fontSize = 19.0,
     this.withOutBackground = false,
+    this.differentColor = false,
+    this.translate = true,
     this.fontFamily = PRIMARY_FONT_REGULAR
   });
 
@@ -61,8 +65,8 @@ class _CustomButtonState extends State<CustomButton> {
         // ),
         child: RaisedButton(
             color: widget.withOutBackground? Colors.transparent: widget.color,
-            focusColor: widget.withOutBackground? Colors.transparent:widget.color,
-            disabledColor:widget.withOutBackground? Colors.transparent: widget.color,
+            focusColor: widget.differentColor? widget.color: widget.withOutBackground? Colors.transparent:widget.color,
+            disabledColor: widget.differentColor? widget.color: widget.withOutBackground? Colors.transparent: widget.color,
             hoverColor: widget.color,
             elevation: 0,
             highlightElevation: 0,
@@ -74,15 +78,16 @@ class _CustomButtonState extends State<CustomButton> {
                       bottomStart: Radius.circular(widget.radius.w),
                       topStart: Radius.circular(widget.radius.w)
                     ),
-            side: BorderSide(color: widget.withOutBackground&&widget.borderColor==buttonColor? Colors.transparent:
-              widget.borderColor, width: widget.borderWidth.w),),
+            side: BorderSide(color: widget.differentColor? widget.withOutBackground&&widget.borderColor==buttonColor? Colors.transparent:
+              widget.borderColor: widget.borderColor, width: widget.borderWidth.w),),
             child: Container(
               decoration: BoxDecoration(
-                gradient: LinearGradient(
+                gradient: widget.differentColor? null: LinearGradient(
                   colors: <Color>[widget.withOutBackground? Colors.transparent:
                     secondaryColor,
                     widget.withOutBackground? Colors.transparent: primaryColor],
                 ),
+                color: widget.differentColor? widget.color: null,
                 borderRadius: BorderRadiusDirectional.only(
                     topEnd: Radius.circular(widget.radius.w),
                     bottomEnd: Radius.circular(widget.radius.w),
@@ -97,7 +102,7 @@ class _CustomButtonState extends State<CustomButton> {
                   start: 5.w, end: 5.w, top: 0.h, bottom: 0.h
                 ),
                 child: Text(
-                    getTranslated(context, widget.title),
+                    widget.translate? getTranslated(context, widget.title): widget.title,
                   style: TextStyle(
                     fontSize: widget.fontSize.ssp,
                     fontFamily: widget.fontFamily,

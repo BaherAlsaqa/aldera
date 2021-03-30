@@ -60,5 +60,11 @@
   "selectSections": "Select Sections",
   "account": "Account",
   "sections": "Sections",
-  "about": "About"
+  "about": "About",
+  "edit": "Edit",
+  "ok": "Ok",
+  "changeAppLangauge": "Change app langauge",
+  "changePassword": "Change Password",
+  "oldPassword": "Old Password",
+  "confirm": "CONFIRM"
 }

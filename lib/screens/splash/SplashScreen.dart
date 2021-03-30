@@ -110,7 +110,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           HomeScreen():
                         HomeScreen():
                       ActivationCodeScreen(true, true):*/
-                     HomeScreen(1),
+                     HomeScreen(0),
               create: (_) => GeneralProvider()),
         ),
       );

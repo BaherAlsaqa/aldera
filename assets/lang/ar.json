@@ -56,5 +56,11 @@
   "addAds": "إضافة إعلان",
   "attachment": "المرفق",
   "imagePreview": "معاينة الصورة",
-  "selectSections": "حدد القسم"
+  "selectSections": "حدد القسم",
+  "edit": "تعديل",
+  "ok": "موافق",
+  "changeAppLangauge": "تغيير لغة التطبيق",
+  "changePassword": "تغيير كلمة المرور",
+  "oldPassword": "كلمة المرور القديمة",
+  "confirm": "تأكيد"
 }

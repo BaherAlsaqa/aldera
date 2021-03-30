@@ -277,10 +277,10 @@ showAlertString(BuildContext context, String title, String error, int type,
       .show();
 }
 
-Future<File> getImageCrop(File imageFile) async {
+Future<File> getImageCrop() async {
   final imagePicker = ImagePicker();
   PickedFile image = await imagePicker.getImage(source: ImageSource.gallery);
-  imageFile = File(image.path);
+  File imageFile = File(image.path);
   var i = await imageFile.readAsBytes();
   print('Select image readAsBytes = ' + i.length.toString());
   return _cropImage(imageFile);
