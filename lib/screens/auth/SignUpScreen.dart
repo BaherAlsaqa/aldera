@@ -6,6 +6,7 @@ import 'package:aldera/custom_widgets/CustomButton.dart';
 import 'package:aldera/custom_widgets/CustomText.dart';
 import 'package:aldera/custom_widgets/CustomTextField.dart';
 import 'package:aldera/provider/LanguageProvider.dart';
+import 'package:aldera/screens/otherScreens/PrivacyTermsScreen.dart';
 import 'package:aldera/singleton/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -151,11 +152,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            CustomText(
-                              'privacyTerms',
-                              textColor: textBlack,
-                              primaryFont: PRIMARY_FONT_REGULAR,
-                              fontSize: 17,
+                            InkWell(
+                              onTap: (){
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => PrivacyTermsScreen(),
+                                  ),
+                                );
+                              },
+                              child: CustomText(
+                                'privacyTerms',
+                                textColor: textBlack,
+                                primaryFont: PRIMARY_FONT_REGULAR,
+                                fontSize: 17,
+                              ),
                             ),
                             InkWell(
                                 onTap: (){

@@ -4,6 +4,7 @@ import 'package:aldera/provider/TimerProvider.dart';
 import 'package:aldera/screens/splash/SplashScreen.dart';
 import 'package:aldera/singleton/dio.dart';
 import 'package:aldera/utils/AppLocalization.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
@@ -21,7 +22,7 @@ final navigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await Firebase.initializeApp();
   await dio.init();
   dio.getIt<LanguagesProvider>().fetchLocale();
   systemChrome(darkMode: true, navBarColor: primaryColor,

@@ -16,9 +16,6 @@ const String ASSETS_NAME_APPBAR = ASSETS_NAME_ICONS+"appbar/";
 const String ASSETS_NAME_HOME = ASSETS_NAME_ICONS+"home/";
 const String ASSETS_NAME_BOTTOM_NAV = ASSETS_NAME_ICONS+"bottom_nav/";
 
-///Ui
-const TEXT = 'text';
-
 ///Variables
 const String ERROR = "error";
 const String NOTE = "noteV";
@@ -45,4 +42,10 @@ const int EMAIL = 5;
 const int MESSAGE = 6;
 const int PROMO_CODE = 7;
 const int POINTS = 8;
+const int COMMENT = 9;
+
+/// chat
+const TEXT = 'text';
+const IMAGE = 'image';
+const CHAT = 'chat';
 

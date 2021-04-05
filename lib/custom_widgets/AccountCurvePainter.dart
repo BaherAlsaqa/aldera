@@ -1,6 +1,10 @@
 import 'package:aldera/constants/colors.dart';
 import 'package:flutter/material.dart';
 class AccountCurvePainter extends CustomPainter {
+  double moveTo;
+  double pathX2;
+  double pathY2;
+  AccountCurvePainter({this.moveTo = 0.05, this.pathX2 = 3.50, this.pathY2 = 0.26});
   @override
   void paint(Canvas canvas, Size size) {
     var rect = Offset.zero & size;
@@ -17,9 +21,9 @@ class AccountCurvePainter extends CustomPainter {
 
     var path = Path();
 
-    path.moveTo(0, (size.height) * 0.05);
+    path.moveTo(0, (size.height) * moveTo);
     path.quadraticBezierTo(
-        size.width / 2, size.height / 3.50, size.width, (size.height) * 0.26);
+        size.width / 2, size.height / pathX2, size.width, (size.height) * pathY2);
     path.lineTo(size.width, 0);
     path.lineTo(0, 0);
 

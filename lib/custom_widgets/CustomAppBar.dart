@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:ui';
 
+import 'package:aldera/screens/otherScreens/NotificationScreen.dart';
 import 'package:aldera/singleton/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -106,12 +107,12 @@ class _CustomAppBarState extends State<CustomAppBar> {
                       child: IconButton(
                           onPressed: () {
                             //todo //enter code here
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //     builder: (context) => CartScreen(null),
-                            //   ),
-                            // );
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => NotificationScreen(),
+                              ),
+                            );
                           },
                           icon: SvgPicture.asset(
                             ASSETS_NAME_APPBAR + "notifications.svg",

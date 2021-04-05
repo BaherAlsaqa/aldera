@@ -96,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: white,
         appBar: CustomAppBar(
           white,
-          title: 'home',
+          title: widget.index == 0? 'profile': widget.index == 1? 'home': widget.index == 2? 'sections': 'about',
           home: true,
           appBarHeight: kToolbarHeight+10.h,
         ),

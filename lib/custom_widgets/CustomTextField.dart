@@ -1,3 +1,4 @@
+import 'package:aldera/custom_widgets/CustomButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -140,7 +141,7 @@ class _MyTextFieldState extends State<CustomTextField> {
             focusColor: white,
             hoverColor: white,
             filled: true,
-            fillColor: widget.type == FULL_NAME? Colors.transparent: gray0,
+            fillColor: widget.type == COMMENT? Colors.transparent: gray0,
             counterText: "",
             errorStyle: TextStyle(
                 fontSize: 12.ssp,
@@ -157,7 +158,7 @@ class _MyTextFieldState extends State<CustomTextField> {
                 bottom: 0.h,
                 start: widget.type == CODE || widget.type == PROMO_CODE
                     ? 28.w:
-                    widget.type == FULL_NAME? 5.w : 39.w,
+                    widget.type == COMMENT? 5.w : 39.w,
                 end: widget.type == CODE || widget.type == PROMO_CODE
                     ? 10.w
                     : 10.w),
@@ -173,21 +174,21 @@ class _MyTextFieldState extends State<CustomTextField> {
                     : PRIMARY_FONT_REGULAR,
                 fontSize: widget.fontSize.ssp),
             border: OutlineInputBorder(
-                borderSide: BorderSide(color: widget.type == FULL_NAME? Colors.transparent: borderGray, width: 1.h),
+                borderSide: BorderSide(color: widget.type == COMMENT? Colors.transparent: borderGray, width: 1.h),
                 borderRadius: BorderRadius.only(
                     topRight: Radius.circular(12.w),
                     topLeft: Radius.circular(12.w),
                     bottomRight: Radius.circular(12.w),
                     bottomLeft: Radius.circular(12.w))),
             enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: widget.type == FULL_NAME? Colors.transparent: borderGray, width: 1.h),
+                borderSide: BorderSide(color: widget.type == COMMENT? Colors.transparent: borderGray, width: 1.h),
                 borderRadius: BorderRadius.only(
                     topRight: Radius.circular(12.w),
                     topLeft: Radius.circular(12.w),
                     bottomRight: Radius.circular(12.w),
                     bottomLeft: Radius.circular(12.w))),
             focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: widget.type == FULL_NAME? Colors.transparent: borderGray, width: 1.h),
+                borderSide: BorderSide(color: widget.type == COMMENT? Colors.transparent: borderGray, width: 1.h),
                 borderRadius: BorderRadius.only(
                     topRight: Radius.circular(12.w),
                     topLeft: Radius.circular(12.w),
@@ -225,11 +226,10 @@ class _MyTextFieldState extends State<CustomTextField> {
             }
           },
         ),
-        // Padding(
-        //   padding: EdgeInsetsDirectional.only(
-        //       start: 0.w, end: 0.w, top: 0.h, bottom: ((value) ? 20.h : 0.h)),
-        //   child: prefix(),
-        // ), // MobileCode(widget.type)
+        if(widget.type == FULL_NAME)
+          PositionedDirectional(
+              end: 0,
+              child: prefix()), // MobileCode(widget.type)
         if (widget.type == PASSWORD)
           PositionedDirectional(
               end: 0,
@@ -268,8 +268,18 @@ class _MyTextFieldState extends State<CustomTextField> {
       ),
     );
   }
-
   Widget prefix() {
+    return CustomButton(
+      width: 58.w,
+      height: 54.h,
+      title: 'ok',
+      radius: 12,
+      function: (){
+        //todo enter code edit full name here
+      },
+    );
+  }
+  /*Widget prefix() {
     return Padding(
       padding: EdgeInsetsDirectional.only(
           start: 5.w, bottom: widget.type == MESSAGE ? 99.h : 0.h),
@@ -288,7 +298,7 @@ class _MyTextFieldState extends State<CustomTextField> {
                                 : "lock.svg"),
       ),
     );
-  }
+  }*/
 }
 
 class MobileCode extends StatelessWidget {

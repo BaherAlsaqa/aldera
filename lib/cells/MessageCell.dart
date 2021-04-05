@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'package:aldera/constants/colors.dart';
 import 'package:aldera/constants/constants.dart';
+import 'package:aldera/provider/LanguageProvider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -15,22 +16,23 @@ import 'package:intl/intl.dart';
 typedef void OnError(Exception exception);
 
 class MessageCell extends StatefulWidget {
-  final String /*user,*/ text, type;
+  final String content, type, userImage;
   final bool mine;
   final String audioTime;
   final timestamp;
+
   // AudioPlayer audioPlayer;
 
-  MessageCell(
-      {Key key,
-      /*this.user,*/
-      this.text,
-      this.type,
-      this.mine,
-        this.audioTime,
-      this.timestamp,
-      /*this.audioPlayer*/})
-      : super(key: key);
+  MessageCell({
+    Key key,
+    this.content,
+    this.type,
+    this.mine,
+    this.audioTime,
+    this.timestamp,
+    this.userImage,
+    /*this.audioPlayer*/
+  }) : super(key: key);
 
   @override
   _MessageCellState createState() => _MessageCellState();
@@ -41,6 +43,7 @@ class _MessageCellState extends State<MessageCell> {
   Duration duration;
   Duration position;
   String localFilePath;
+
   // PlayerState playerState = PlayerState.stopped;
 
   // get isPlaying => playerState == PlayerState.playing;
@@ -62,22 +65,52 @@ class _MessageCellState extends State<MessageCell> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    // print("widget.timestamp.toDate().toString() = "+
-    //     widget.timestamp.toDate().toString()+ " || "+
-    //     DateTime.parse(widget.timestamp.toDate().toString()).toString().split(" ")[0].split("-")[0]+" "+
-    //     DateTime.parse(widget.timestamp.toDate().toString()).toString().split(" ")[0].split("-")[1]+" "
-    //   +DateTime.parse(widget.timestamp.toDate().toString()).toString().split(" ")[0].split("-")[2]);
-    // year = DateTime.parse(widget.timestamp.toDate().toString()).toString().split(" ")[0].split("-")[0];
-    // month = DateTime.parse(widget.timestamp.toDate().toString()).toString().split(" ")[0].split("-")[1];
-    // day = DateTime.parse(widget.timestamp.toDate().toString()).toString().split(" ")[0].split("-")[2];
-    // hour = widget.timestamp.toDate().toString().split(" ")[1].split(".")[0].split(":")[0];
-    // min = widget.timestamp.toDate().toString().split(" ")[1].split(".")[0].split(":")[1];
+    print("widget.timestamp.toDate().toString() = " +
+        widget.timestamp.toDate().toString() +
+        " || " +
+        DateTime.parse(widget.timestamp.toDate().toString())
+            .toString()
+            .split(" ")[0]
+            .split("-")[0] +
+        " " +
+        DateTime.parse(widget.timestamp.toDate().toString())
+            .toString()
+            .split(" ")[0]
+            .split("-")[1] +
+        " " +
+        DateTime.parse(widget.timestamp.toDate().toString())
+            .toString()
+            .split(" ")[0]
+            .split("-")[2]);
+    year = DateTime.parse(widget.timestamp.toDate().toString())
+        .toString()
+        .split(" ")[0]
+        .split("-")[0];
+    month = DateTime.parse(widget.timestamp.toDate().toString())
+        .toString()
+        .split(" ")[0]
+        .split("-")[1];
+    day = DateTime.parse(widget.timestamp.toDate().toString())
+        .toString()
+        .split(" ")[0]
+        .split("-")[2];
+    hour = widget.timestamp
+        .toDate()
+        .toString()
+        .split(" ")[1]
+        .split(".")[0]
+        .split(":")[0];
+    min = widget.timestamp
+        .toDate()
+        .toString()
+        .split(" ")[1]
+        .split(".")[0]
+        .split(":")[1];
     // initAudioPlayer();
   }
 
   @override
   Widget build(BuildContext context) {
-    String networkImage = 'https://www.niemanlab.org/images/Greg-Emerson-edit-2.jpg';
     return Container(
       color: chatBackColor,
       child: Padding(
@@ -95,7 +128,8 @@ class _MessageCellState extends State<MessageCell> {
               ),
             ),*/
             Directionality(
-              textDirection: widget.mine? ui.TextDirection.rtl: ui.TextDirection.ltr,
+              textDirection:
+                  widget.mine ? ui.TextDirection.rtl : ui.TextDirection.ltr,
               child: Row(
                 children: [
                   Container(
@@ -103,16 +137,11 @@ class _MessageCellState extends State<MessageCell> {
                     height: 40.w,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadiusDirectional.only(
-                        topStart: Radius.circular(50.sp),
-                        topEnd: Radius.circular(50.sp),
-                        bottomStart: Radius.circular(50.sp),
-                        bottomEnd: Radius.circular(50.sp)
-                     ),
-                      image: DecorationImage(
-                        image: NetworkImage(
-                          networkImage
-                        )
-                      ),
+                          topStart: Radius.circular(50.sp),
+                          topEnd: Radius.circular(50.sp),
+                          bottomStart: Radius.circular(50.sp),
+                          bottomEnd: Radius.circular(50.sp)),
+                      image: DecorationImage(image: NetworkImage(widget.userImage)),
                       color: gray3,
                       boxShadow: [
                         BoxShadow(
@@ -127,30 +156,32 @@ class _MessageCellState extends State<MessageCell> {
                       ],
                     ),
                   ),
-                  SizedBox(width: 10.w,),
+                  SizedBox(
+                    width: 10.w,
+                  ),
                   Container(
                     width: 284.w,
-                    height: widget.type == TEXT? null: 70*3.w,
-                    padding: EdgeInsets.symmetric(vertical: 12.0.h, horizontal: 12.0.w),
+                    height: widget.type == TEXT ? null : 70 * 3.w,
+                    padding: EdgeInsets.symmetric(
+                        vertical: 12.0.h, horizontal: 12.0.w),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(topRight: Radius.circular(15),
-                        topLeft: Radius.circular(15),
-                        bottomRight: Radius.circular(widget.mine? 15: 15),
-                        bottomLeft: Radius.circular(widget.mine? 15: 15),),
-                      color: widget.mine ? primaryColor : gray4
-                    ),
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(15),
+                          topLeft: Radius.circular(15),
+                          bottomRight: Radius.circular(widget.mine ? 15 : 15),
+                          bottomLeft: Radius.circular(widget.mine ? 15 : 15),
+                        ),
+                        color: widget.mine ? primaryColor : gray4),
                     child: widget.type == TEXT
                         ? Text(
-                            widget.text,
+                            widget.content,
                             style: TextStyle(
-                              color: widget.mine ? textWhite :
-                              textGray3,
-                              fontSize: 11.ssp,
-                              fontFamily: PRIMARY_FONT_REGULAR,
-                              height: 1.5.h
-                            ),
+                                color: widget.mine ? textWhite : textGray3,
+                                fontSize: 11.ssp,
+                                fontFamily: PRIMARY_FONT_REGULAR,
+                                height: 1.5.h),
                           )
-                        : Container()/*Row(
+                        : Container() /*Row(
                             children: [
                               Stack(
                                 children: [
@@ -206,7 +237,8 @@ class _MessageCellState extends State<MessageCell> {
                                   isPaused? _buildProgressView():
                                 _buildProgressView1(),
                             ],
-                          )*/,
+                          )*/
+                    ,
                   ),
                 ],
               ),
@@ -214,26 +246,32 @@ class _MessageCellState extends State<MessageCell> {
             // DateTime.parse(widget.timestamp.toDate().toString()).toString()
             Padding(
               padding: EdgeInsetsDirectional.only(
-                start: 50.w, end: 50.w, top: 8.h, bottom: 0.h
-              ),
+                  start: 50.w, end: 50.w, top: 8.h, bottom: 0.h),
               child: Directionality(
-                textDirection: widget.mine? ui.TextDirection.rtl: ui.TextDirection.ltr,
+                textDirection:
+                    widget.mine ? ui.TextDirection.rtl : ui.TextDirection.ltr,
                 child: Row(
                   children: [
-                    Text('Nov 4, 18:03'
-      /*DateFormat(
-                          'dd MMMM y, m:h a',
-                          Provider.of<LanguagesProvider>(context, listen: false)
-                              .appLocal
-                              .languageCode)
-                          .format(DateTime(
-                          int.parse(year),
-                          int.parse(month),
-                          int.parse(day),
-                          int.parse(hour),
-                          int.parse(min))) +
+                    Text(
+                      DateFormat(
+                                  'dd MMMM y, m:h a',
+                                  Provider.of<LanguagesProvider>(context,
+                                          listen: false)
+                                      .appLocal
+                                      .languageCode)
+                              .format(DateTime(
+                                  int.parse(year),
+                                  int.parse(month),
+                                  int.parse(day),
+                                  int.parse(hour),
+                                  int.parse(min))) +
                           ", " +
-                          widget.timestamp.toDate().toString().split(" ")[1].split(".")[0].substring(0, 5)*/,
+                          widget.timestamp
+                              .toDate()
+                              .toString()
+                              .split(" ")[1]
+                              .split(".")[0]
+                              .substring(0, 5),
                       style: TextStyle(
                         color: widget.mine ? gray : gray,
                         fontSize: 10.ssp,

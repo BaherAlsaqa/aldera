@@ -6,6 +6,7 @@ import 'package:aldera/custom_widgets/AccountCurvePainter.dart';
 import 'package:aldera/custom_widgets/CurvePainter.dart';
 import 'package:aldera/custom_widgets/CustomButton.dart';
 import 'package:aldera/custom_widgets/CustomText.dart';
+import 'package:aldera/custom_widgets/CustomTextField.dart';
 import 'package:aldera/singleton/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,9 +22,19 @@ class _AccountPageState extends State<AccountPage> {
   File imageFile;
   String chooseLang = 'en';
 
+  TextEditingController userName = TextEditingController();
+  TextEditingController oldPassword = TextEditingController();
+  TextEditingController password = TextEditingController();
+  TextEditingController rePassword = TextEditingController();
+  FocusNode focus1 = FocusNode();
+  FocusNode focus2 = FocusNode();
+  FocusNode focus3 = FocusNode();
+  FocusNode focus4 = FocusNode();
+
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: white,
         child: SafeArea(
             top: true,
             child: Scaffold(
@@ -90,6 +101,16 @@ class _AccountPageState extends State<AccountPage> {
                           SizedBox(
                             height: 17.h,
                           ),
+                          Container(
+                            height: 52.h,
+                            width: 301.w,
+                            child: CustomTextField('Amjad Owaida', userName, focus1,
+                                focus2, FULL_NAME, 'pleaseEnterFullName',
+                            translate: false,),
+                          ),
+                          SizedBox(
+                            height: 17.h,
+                          ),
                           CustomText(
                             'changeAppLangauge',
                             textColor: textBlack,
@@ -144,6 +165,60 @@ class _AccountPageState extends State<AccountPage> {
                                 },
                               )
                             ],
+                          ),
+                          SizedBox(
+                            height: 26.h,
+                          ),
+                          CustomText(
+                            'changePassword',
+                            textColor: textBlack,
+                            primaryFont: PRIMARY_FONT_REGULAR,
+                            fontSize: 14,
+                            textAlign: TextAlign.start,
+                          ),
+                          SizedBox(
+                            height: 11.h,
+                          ),
+                          Container(
+                            width: 301.w,
+                            height: 52.h,
+                            child: CustomTextField(
+                                "oldPassword",
+                                password,
+                                focus2,
+                                focus3,
+                                PASSWORD,
+                                "pleaseEnterOldPassword"),
+                          ),
+                          SizedBox(height: 16.h,),
+                          Container(
+                            width: 301.w,
+                            height: 52.h,
+                            child: CustomTextField(
+                                "password",
+                                password,
+                                focus3,
+                                focus4,
+                                PASSWORD,
+                                "pleaseEnterPassword"),
+                          ),
+                          SizedBox(height: 16.h,),
+                          Container(
+                            width: 301.w,
+                            height: 52.h,
+                            child: CustomTextField(
+                                "rePassword",
+                                rePassword,
+                                focus4,
+                                focus4,
+                                PASSWORD,
+                                "pleaseEnterRePassword"),
+                          ),
+                          SizedBox(height: 16.h,),
+                          CustomButton(
+                            width: 310.w,
+                            height: 52.h,
+                            title: 'confirm',
                           )
                         ],
                       ),

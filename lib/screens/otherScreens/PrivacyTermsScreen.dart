@@ -1,20 +1,18 @@
 import 'package:aldera/constants/colors.dart';
 import 'package:aldera/constants/constants.dart';
 import 'package:aldera/custom_widgets/AccountCurvePainter.dart';
-import 'package:aldera/custom_widgets/CurvePainter.dart';
 import 'package:aldera/custom_widgets/CustomText.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_html/style.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-class AboutPage extends StatefulWidget {
+import 'package:flutter_svg/svg.dart';
+class PrivacyTermsScreen extends StatefulWidget {
   @override
-  _AboutPageState createState() => _AboutPageState();
+  _PrivacyTermsScreenState createState() => _PrivacyTermsScreenState();
 }
 
-class _AboutPageState extends State<AboutPage> {
+class _PrivacyTermsScreenState extends State<PrivacyTermsScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,15 +28,15 @@ class _AboutPageState extends State<AboutPage> {
                 color: Colors.transparent,
                 child: CustomPaint(
                   painter: AccountCurvePainter(
-                    moveTo: 0.35,
-                    pathX2: 2.50,
-                    pathY2: 0.28
+                      moveTo: 0.35,
+                      pathX2: 2.50,
+                      pathY2: 0.28
                   ),
                 ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.only(
-                  start: 0.w, end: 0.w, top: 111.h, bottom: 0.h
+                    start: 0.w, end: 0.w, top: 111.h, bottom: 0.h
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -59,7 +57,7 @@ class _AboutPageState extends State<AboutPage> {
                 top: 319.h,
                 start: 31.w,
                 child: CustomText(
-                  'about',
+                  'privacyTerms',
                   textColor: textBlack,
                   primaryFont: PRIMARY_FONT_MEDIUM,
                   fontSize: 16,
@@ -71,19 +69,19 @@ class _AboutPageState extends State<AboutPage> {
                 start: 35.w,
                 end: 15.w,
                 child: Html(
-                data: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium ",
-                style: {
-                  "p": Style(
-                    fontSize: FontSize.small,
-                    fontFamily: PRIMARY_FONT_REGULAR,
-                    color: textBlack,
-                    textAlign: TextAlign.start,
-                  ),
-                },
-                onLinkTap: (url) {
-                  print("Opening $url...");
-                },
-              ),)
+                  data: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium ",
+                  style: {
+                    "p": Style(
+                      fontSize: FontSize.small,
+                      fontFamily: PRIMARY_FONT_REGULAR,
+                      color: textBlack,
+                      textAlign: TextAlign.start,
+                    ),
+                  },
+                  onLinkTap: (url) {
+                    print("Opening $url...");
+                  },
+                ),)
             ],
           ),
         ),

@@ -33,6 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // ScreenUtil.init(BoxConstraints(), Orientation.portrait, designSize: Size(375, 812));
     systemChrome(
         darkMode: true,
         navBarColor: primaryColor,
@@ -110,7 +111,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           HomeScreen():
                         HomeScreen():
                       ActivationCodeScreen(true, true):*/
-                     HomeScreen(0),
+                     HomeScreen(1),
               create: (_) => GeneralProvider()),
         ),
       );

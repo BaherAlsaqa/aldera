@@ -8,6 +8,7 @@
   "pleaseChooseCity": "Please choose city",
   "search": "Search",
   "pleaseEnterMobile": "Please enter mobile number",
+  "pleaseEnterOldPassword": "Please enter old password",
   "pleaseEnterPassword": "Please enter password",
   "pleaseEnterRePassword": "Please enter re-password",
   "pleaseEnterFullName": "Please enter full name",
@@ -66,5 +67,9 @@
   "changeAppLangauge": "Change app langauge",
   "changePassword": "Change Password",
   "oldPassword": "Old Password",
-  "confirm": "CONFIRM"
+  "confirm": "CONFIRM",
+  "profile": "Profile",
+  "notifications": "Notifications",
+  "commentsTitle": "Comments",
+  "typeMessage": "Type a message"
 }

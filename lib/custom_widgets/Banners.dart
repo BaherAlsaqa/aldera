@@ -93,7 +93,7 @@ class _BannersState extends State<Banners> {
             height: 257.h,
             viewportFraction: 1,
             initialPage: _current,
-            enableInfiniteScroll: true,
+            enableInfiniteScroll: images.length <= 1 ? false : true,
             reverse: false,
             autoPlay: images.length <= 1 ? false : true,
             autoPlayInterval: Duration(seconds: 3),

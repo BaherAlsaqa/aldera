@@ -3,6 +3,7 @@ import 'package:aldera/constants/constants.dart';
 import 'package:aldera/custom_widgets/CustomButton.dart';
 import 'package:aldera/custom_widgets/CustomText.dart';
 import 'package:aldera/custom_widgets/CustomTextField.dart';
+import 'package:aldera/screens/otherScreens/CommentScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -127,30 +128,40 @@ class SectionAdsCell extends StatelessWidget {
           PositionedDirectional(
             bottom: 46.h,
               end: 8.w,
-              child: Row(
-                children: [
-                  CustomText(
-                    'viewAll',
-                    textColor: subTextBlack,
-                    primaryFont: PRIMARY_FONT_REGULAR,
-                    fontSize: 9,
-                  ),
-                  SizedBox(width: 3.w,),
-                  CustomText(
-                    '3',
-                    translate: false,
-                    textColor: subTextBlack,
-                    primaryFont: PRIMARY_FONT_REGULAR,
-                    fontSize: 9,
-                  ),
-                  SizedBox(width: 3.w,),
-                  CustomText(
-                    'comments',
-                    textColor: subTextBlack,
-                    primaryFont: PRIMARY_FONT_REGULAR,
-                    fontSize: 9,
-                  )
-                ],
+              child: InkWell(
+                onTap: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CommentScreen(),
+                    ),
+                  );
+                },
+                child: Row(
+                  children: [
+                    CustomText(
+                      'viewAll',
+                      textColor: subTextBlack,
+                      primaryFont: PRIMARY_FONT_REGULAR,
+                      fontSize: 9,
+                    ),
+                    SizedBox(width: 3.w,),
+                    CustomText(
+                      '3',
+                      translate: false,
+                      textColor: subTextBlack,
+                      primaryFont: PRIMARY_FONT_REGULAR,
+                      fontSize: 9,
+                    ),
+                    SizedBox(width: 3.w,),
+                    CustomText(
+                      'comments',
+                      textColor: subTextBlack,
+                      primaryFont: PRIMARY_FONT_REGULAR,
+                      fontSize: 9,
+                    )
+                  ],
+                ),
               )
           ),
           PositionedDirectional(
@@ -186,7 +197,7 @@ class SectionAdsCell extends StatelessWidget {
                   comment,
                   focus1,
                   focus1,
-                  FULL_NAME,
+                  COMMENT,
                   "pleaseEnterRePassword",
               fontSize: 9,),
             ),

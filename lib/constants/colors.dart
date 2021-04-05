@@ -38,6 +38,7 @@ const grayDark = Color(0xff4D4D4D);
 const borderGray = Color(0xffE7E7E7);
 const borderGray1 = Color(0xffE6E6E6);
 const obscureColor = Color(0xffD3D3D3);
+const obscureColor1 = Color(0xffc2c2c2);
 const backGray = Color(0xffF5F5F5);
 const hintTextColor = Color(0xffD3D3D3);
 const shadowColor2 = Color(0xffA2A2A2);
